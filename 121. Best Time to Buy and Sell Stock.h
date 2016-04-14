@@ -7,13 +7,10 @@ public:
        if(prices.size()==0)
            return 0;
        int maxprofit=0;
-       int flag=prices[0];
+       int minStock=prices[0];
        for(int i=0;i<prices.size();i++){
-           if(prices[i]<flag){
-               flag=prices[i];
-           }
-           else
-               maxprofit=(maxprofit>(prices[i]-flag))?maxprofit:(prices[i]-flag);
+               minStock=min(minStock,prices[i]);
+               maxprofit=max(maxprofit,prices[i]-minStock);
        }
        return maxprofit;
 
